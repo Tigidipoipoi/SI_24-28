@@ -2,12 +2,13 @@
 using System.Collections;
 
 public class DragClamp : MonoBehaviour {
-
+    #region Methods
     private bool dragging = false;
     private float distance;
     public string description = "";
     int[] m_DepthMasks = new int[4];
     float[] m_ClampedYPosition = new float[4];
+    #endregion
 
     void Start() {
         for (int i = 0; i < 4; ++i) {
@@ -30,6 +31,12 @@ public class DragClamp : MonoBehaviour {
         dragging = false;
 
         if (transform.position.y < m_ClampedYPosition[0])
+            Destroy(this.gameObject);
+    }
+
+    void OnMouseExit() {
+        if (!dragging
+            && transform.position.y < m_ClampedYPosition[0])
             Destroy(this.gameObject);
     }
 

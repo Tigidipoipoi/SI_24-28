@@ -55,7 +55,9 @@
      <Compile Include="Assets\Scripts\Shooter\TextGeneration.cs" />
      <Compile Include="Assets\Scripts\Shooter\TextLife.cs" />
      <Compile Include="Assets\Scripts\Theatre\DragClamp.cs" />
+     <Compile Include="Assets\Scripts\Theatre\NavigationArrow.cs" />
      <Compile Include="Assets\Scripts\Theatre\Timer.cs" />
+     <Compile Include="Assets\Scripts\Theatre\ToolNavigation.cs" />
      <Compile Include="Assets\Scripts\Theatre\ToolSlot.cs" />
      <Compile Include="Assets\Scripts\Theatre\ToolType.cs" />
  <Reference Include="UnityEngine.UI">
