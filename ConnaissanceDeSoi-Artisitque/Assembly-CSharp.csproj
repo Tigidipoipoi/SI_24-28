@@ -53,7 +53,10 @@
      <Compile Include="Assets\Scripts\DressUp\TextTB.cs" />
      <Compile Include="Assets\Scripts\DressUp\Tools.cs" />
      <Compile Include="Assets\Scripts\Shooter\TextGeneration.cs" />
+     <Compile Include="Assets\Scripts\Shooter\TextGenerationMaster.cs" />
      <Compile Include="Assets\Scripts\Shooter\TextLife.cs" />
+     <Compile Include="Assets\Scripts\Shooter\Word.cs" />
+     <Compile Include="Assets\Scripts\Shooter\WordList.cs" />
      <Compile Include="Assets\Scripts\Theatre\DragClamp.cs" />
      <Compile Include="Assets\Scripts\Theatre\NavigationArrow.cs" />
      <Compile Include="Assets\Scripts\Theatre\Timer.cs" />

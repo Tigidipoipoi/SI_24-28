@@ -4,27 +4,44 @@ using System.Collections.Generic;
 
 public class TextGeneration : MonoBehaviour {
     #region Members
-    public static int s_DestroyedWord = 0;
-    public static int s_DestroyedWordsToEnd = 21;
-
+    public TextGenerationMaster m_StaticAttributes;
     public float c_TimeBetweenSpawns = 0.5f;
     public int c_MaxWordInALine = 3;
 
     Queue<GameObject> m_WordsQueue;
     GameObject m_InvokedWordsContainer;
     GameObject m_InactiveWordsContainer;
+    List<Word> m_WordList;
     #endregion
 
     void Start() {
-        m_WordsQueue = new Queue<GameObject>(s_DestroyedWordsToEnd);
+        // Tweeking
+        m_StaticAttributes = this.transform.parent.GetComponent<TextGenerationMaster>();
+
+        PopulateWordList();
+
+        m_WordsQueue = new Queue<GameObject>(m_StaticAttributes.m_DestroyedWordsToEnd);
         m_InvokedWordsContainer = transform.FindChild("Spawn").gameObject;
         m_InactiveWordsContainer = transform.FindChild("Queue").gameObject;
 
-        for (int i = 0; i < s_DestroyedWordsToEnd; ++i) {
-            Object prefab = Resources.Load("Prefabs/Shooter/WordToShoot");
+        for (int i = 0; i < m_WordList.Count; ++i) {
+            string resourceToLoad = "Prefabs/Shooter/WordsToShoot/";
+            switch (m_WordList[i].m_Category) {
+                case Word.e_WordCategories.SHORT_WORD:
+                    resourceToLoad += "SmallWordToShoot";
+                    break;
+                case Word.e_WordCategories.MEDIUM_WORD:
+                    resourceToLoad += "MediumWordToShoot";
+                    break;
+                case Word.e_WordCategories.LONG_WORD:
+                    resourceToLoad += "LongWordToShoot";
+                    break;
+            }
+
+            Object prefab = Resources.Load(resourceToLoad);
             GameObject wordToShoot = GameObject.Instantiate(prefab) as GameObject;
 
-            wordToShoot.GetComponent<TextLife>().m_Text = "Azerty";
+            wordToShoot.GetComponent<TextLife>().m_Word = m_WordList[i];
             wordToShoot.transform.parent = m_InactiveWordsContainer.transform;
             wordToShoot.transform.position = m_InactiveWordsContainer.transform.position;
             wordToShoot.SetActive(false);
@@ -35,17 +52,27 @@ public class TextGeneration : MonoBehaviour {
         this.StartCoroutine("InvokeWords");
     }
 
+    void PopulateWordList() {
+        WordList.PopulateWords();
+        m_WordList = new List<Word>();
+        for (int i = 0; i < 13; ++i) {
+            Word rngWord = WordList.GetAWord();
+            if (rngWord != null)
+                m_WordList.Add(rngWord);
+        }
+    }
+
     IEnumerator InvokeWords() {
-        while (s_DestroyedWord < s_DestroyedWordsToEnd) {
+        while (m_StaticAttributes.m_DestroyedWord < m_StaticAttributes.m_DestroyedWordsToEnd) {
             if (m_InvokedWordsContainer.transform.childCount < c_MaxWordInALine) {
                 GameObject invokedWord = m_WordsQueue.Dequeue();
+                TextLife invokedWordScript = invokedWord.GetComponent<TextLife>();
                 invokedWord.transform.parent = m_InvokedWordsContainer.transform;
                 invokedWord.SetActive(true);
-                TextLife invokedWordScript = invokedWord.GetComponent<TextLife>();
 
                 // Waiting for invokedWordScript to be set
                 yield return null;
-                
+
                 float timeToWait = invokedWordScript.GetTimeToWait(c_TimeBetweenSpawns);
                 yield return new WaitForSeconds(timeToWait);
             }
@@ -54,6 +81,7 @@ public class TextGeneration : MonoBehaviour {
         }
 
         // Launch GameOver
+        Debug.Log("GameOver");
     }
 
     public void ReturnToQueue(GameObject wordToReturn) {

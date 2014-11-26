@@ -4,37 +4,54 @@ using System.Collections;
 public class TextLife : MonoBehaviour {
     #region Members
     public float m_WordSpeed = 1.5f;
-    public string m_Text;
+    public Word m_Word;
 
     TextMesh m_TextMesh;
-    float m_ColliderXSize;
 
-    float m_MaxXRightComputed {
-        get {
-            return c_MaxXRight + m_ColliderXSize;
-        }
-    }
-    const float c_MaxXRight = 7.0f;
-    const float c_MinXLeft = -6.5f;
     Vector3 m_ResetPosition;
 
     TextGeneration m_ParentGenerator;
     #endregion
 
     void Start() {
-        m_TextMesh = this.GetComponent<TextMesh>();
+        m_TextMesh = this.transform.FindChild("Text").GetComponent<TextMesh>();
         this.StartCoroutine("Move");
-        m_TextMesh.text = m_Text;
-        this.gameObject.AddComponent<BoxCollider2D>();
-        m_ResetPosition = new Vector3(c_MinXLeft, this.transform.position.y, this.transform.position.z);
-        m_ColliderXSize = this.GetComponent<BoxCollider2D>().size.x;
+        m_TextMesh.text = m_Word.m_Text;
+
+        float spawnXPosition = 0f;
+        switch (m_Word.m_Category) {
+            case Word.e_WordCategories.SHORT_WORD:
+                spawnXPosition = Word.c_MinXLeftShort;
+                break;
+            case Word.e_WordCategories.MEDIUM_WORD:
+                spawnXPosition = Word.c_MinXLeftMedium;
+                break;
+            case Word.e_WordCategories.LONG_WORD:
+                spawnXPosition = Word.c_MinXLeftLong;
+                break;
+        }
+        m_ResetPosition = new Vector3(spawnXPosition, this.transform.position.y, this.transform.position.z);
 
         m_ParentGenerator = this.transform.parent.parent.gameObject.GetComponent<TextGeneration>();
+        Debug.Log(m_Word.m_Text);
     }
 
     IEnumerator Move() {
+        float desappearXPosition = 0f;
+        switch (m_Word.m_Category) {
+            case Word.e_WordCategories.SHORT_WORD:
+                desappearXPosition = -Word.c_MinXLeftShort;
+                break;
+            case Word.e_WordCategories.MEDIUM_WORD:
+                desappearXPosition = -Word.c_MinXLeftMedium;
+                break;
+            case Word.e_WordCategories.LONG_WORD:
+                desappearXPosition = -Word.c_MinXLeftLong;
+                break;
+        }
+
         while (true) {
-            if (this.transform.position.x > m_MaxXRightComputed) {
+            if (this.transform.position.x > desappearXPosition) {
                 m_ParentGenerator.ReturnToQueue(this.gameObject);
                 this.transform.position = m_ResetPosition;
             }
@@ -46,11 +63,24 @@ public class TextLife : MonoBehaviour {
 
     void OnMouseDown() {
         GameObject.Destroy(this.gameObject);
-        ++TextGeneration.s_DestroyedWord;
+        ++m_ParentGenerator.m_StaticAttributes.m_DestroyedWord;
     }
 
     public float GetTimeToWait(float timeBetweenSpawns) {
-        float timeToWait = m_ColliderXSize / m_WordSpeed + timeBetweenSpawns;
+        float size = 0f;
+        switch (m_Word.m_Category) {
+            case Word.e_WordCategories.SHORT_WORD:
+                size = Word.c_ShortSize;
+                break;
+            case Word.e_WordCategories.MEDIUM_WORD:
+                size = Word.c_MediumSize;
+                break;
+            case Word.e_WordCategories.LONG_WORD:
+                size = Word.c_LongSize;
+                break;
+        }
+
+        float timeToWait = size / m_WordSpeed + timeBetweenSpawns;
 
         return timeToWait;
     }
