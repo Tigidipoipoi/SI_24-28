@@ -8,8 +8,7 @@ class DragNDrop : MonoBehaviour {
     private TextTB ttb;
     public string description = "";
 
-    void start() {
-
+    void Start() {
         ttb = GameObject.Find("TextTB").GetComponent<TextTB>();
 
     }

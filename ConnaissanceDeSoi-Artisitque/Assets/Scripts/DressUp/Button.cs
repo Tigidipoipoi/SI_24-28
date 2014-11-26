@@ -6,7 +6,7 @@ public class Button : MonoBehaviour {
     bool naming = false, over = false;
     NameIt nI;
     Color init = Color.gray, mouseOver = Color.blue, mouseClick = Color.green;
-    string catName;
+
 
     void Start() {
 
@@ -27,7 +27,6 @@ public class Button : MonoBehaviour {
         }
         else {
             nI.Naming();
-            catName = nI.GetName();
             over = true;
         }
 
