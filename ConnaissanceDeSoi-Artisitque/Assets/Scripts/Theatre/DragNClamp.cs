@@ -6,7 +6,7 @@ public class DragNClamp : MonoBehaviour {
     public int c_ToolsToAutoValidate = 15;
     public string description = "";
 
-    bool dragging = false;
+    bool m_Dragging = false;
     float distance;
     int[] m_DepthMasks = new int[4];
     float[] m_ClampedYPosition = new float[4];
@@ -39,13 +39,22 @@ public class DragNClamp : MonoBehaviour {
     }
 
     void OnMouseDown() {
-        distance = Vector3.Distance(this.transform.position, Camera.main.transform.position);
-
-        dragging = true;
+        InitDrag();
     }
 
     void OnMouseUp() {
-        dragging = false;
+        ExitDrag();
+    }
+
+
+    public void InitDrag() {
+        distance = Vector3.Distance(this.transform.position, Camera.main.transform.position);
+
+        m_Dragging = true;
+    }
+
+    public void ExitDrag() {
+        m_Dragging = false;
 
         if (this.transform.position.y < m_ClampedYPosition[0] - 0.1f) {
             SelfDestroy();
@@ -69,7 +78,7 @@ public class DragNClamp : MonoBehaviour {
     }
 
     void OnMouseExit() {
-        if (!dragging
+        if (!m_Dragging
             && this.transform.position.y < m_ClampedYPosition[0] - 0.1f) {
             SelfDestroy();
         }
@@ -78,7 +87,7 @@ public class DragNClamp : MonoBehaviour {
     void Update() {
         DisplayHandling();
 
-        if (dragging) {
+        if (m_Dragging) {
             Ray ray = new Ray(Camera.main.ScreenToWorldPoint(Input.mousePosition), new Vector3(0f, 0f, 1f));
             RaycastHit hit;
 
@@ -102,6 +111,10 @@ public class DragNClamp : MonoBehaviour {
     }
 
     void DisplayHandling() {
-        m_Renderer.enabled = this.transform.position.y >= -0.1f;
+        m_Renderer.enabled = this.transform.position.y >= m_ClampedYPosition[0] - 0.1f;
+    }
+
+    public float GetThresholdPosY() {
+        return m_ClampedYPosition[0];
     }
 }

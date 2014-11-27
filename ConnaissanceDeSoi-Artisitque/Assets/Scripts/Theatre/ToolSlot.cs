@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 
 public class ToolSlot : MonoBehaviour {
     #region Members
@@ -28,7 +29,7 @@ public class ToolSlot : MonoBehaviour {
 
     Vector3 m_SpawnPosition {
         get {
-            return new Vector3(this.transform.position.x, this.transform.position.y, -0.01f);
+            return new Vector3(this.transform.position.x, this.transform.position.y, 2f);
         }
     }
     SceneValidation m_SceneValidationScript;
@@ -51,6 +52,24 @@ public class ToolSlot : MonoBehaviour {
             m_InstanciatedObjects.Add(newInstance.GetComponent<DragNClamp>());
             newInstance.GetComponent<DragNClamp>().m_SlotScript = this;
             ++p_SimultaneousInstances;
+        }
+    }
+
+    void OnMouseDown() {
+        DragNClamp lastInstance;
+        if (m_InstanciatedObjects.Count > 0
+            && (lastInstance = m_InstanciatedObjects.Last()) != null) {
+            if (lastInstance.transform.position.y < lastInstance.GetThresholdPosY() - 0.1f) {
+                lastInstance.InitDrag();
+            }
+        }
+    }
+
+    void OnMouseUp() {
+        DragNClamp lastInstance;
+        if (m_InstanciatedObjects.Count > 0
+            && (lastInstance = m_InstanciatedObjects.Last()) != null) {
+            lastInstance.ExitDrag();
         }
     }
 }
