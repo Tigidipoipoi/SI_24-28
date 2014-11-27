@@ -16,6 +16,8 @@ public class DragNClamp : MonoBehaviour {
     public ToolSlot m_SlotScript;
     ToolType m_ToolType;
     SceneValidation m_SceneValidationScript;
+
+    Renderer m_Renderer;
     #endregion
 
     void Start() {
@@ -32,6 +34,8 @@ public class DragNClamp : MonoBehaviour {
 
         m_ToolType = this.GetComponent<ToolType>();
         m_SceneValidationScript = GameObject.Find("Timer").GetComponent<SceneValidation>();
+
+        m_Renderer = this.GetComponent<Renderer>();
     }
 
     void OnMouseDown() {
@@ -72,6 +76,8 @@ public class DragNClamp : MonoBehaviour {
     }
 
     void Update() {
+        DisplayHandling();
+
         if (dragging) {
             Ray ray = new Ray(Camera.main.ScreenToWorldPoint(Input.mousePosition), new Vector3(0f, 0f, 1f));
             RaycastHit hit;
@@ -82,11 +88,6 @@ public class DragNClamp : MonoBehaviour {
             for (int i = 0; i < 4; ++i) {
                 if (Physics.Raycast(ray, out hit, distance, m_DepthMasks[i])) {
                     rayPoint.y = m_ClampedYPosition[i];
-
-                    if (!m_ToolType.m_IsCeilingStuff
-                        && i == 3) {
-                        // Add red filter
-                    }
                 }
             }
 
@@ -98,5 +99,9 @@ public class DragNClamp : MonoBehaviour {
         Destroy(this.gameObject);
         m_SlotScript.m_InstanciatedObjects.Remove(this);
         --m_SlotScript.p_SimultaneousInstances;
+    }
+
+    void DisplayHandling() {
+        m_Renderer.enabled = this.transform.position.y >= -0.1f;
     }
 }
