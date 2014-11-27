@@ -1,8 +1,8 @@
 fileFormatVersion: 2
-guid: 833c56289cee531419280220dc11e4c8
+guid: 8fa1e320f9578434bac7262dd49ef0d4
 TextureImporter:
   fileIDToRecycleName:
-    21300000: AtlasDecor
+    21300000: ValiderBouton_0
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -22,7 +22,7 @@ TextureImporter:
   grayScaleToAlpha: 0
   generateCubemap: 0
   seamlessCubemap: 0
-  textureFormat: -3
+  textureFormat: -1
   maxTextureSize: 1024
   textureSettings:
     filterMode: -1
@@ -32,7 +32,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -43,6 +43,16 @@ TextureImporter:
   textureType: 8
   buildTargetSettings: []
   spriteSheet:
-    sprites: []
+    sprites:
+    - name: ValiderBouton_0
+      rect:
+        serializedVersion: 2
+        x: 13
+        y: 168
+        width: 159
+        height: 77
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
   spritePackingTag: 
   userData: 

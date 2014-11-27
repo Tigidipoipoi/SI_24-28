@@ -4,25 +4,22 @@ using System.Collections.Generic;
 
 public class Button : MonoBehaviour {
 
-    bool naming = false, over = false, flip;
+	bool naming = false, over = false, flip, valideMovement = false;
     NameIt nI;
-    Color init = Color.gray, mouseOver = Color.blue, mouseClick = Color.green;
-    //string catName;
+    string catName;
 	float score, tpsDeJeu, tpsDeNom, scorePlacement;
 	GameObject[] elements;
 	Dictionary<string, char> varietyDico;
 	int varietyScore, arm, ear, eye, leg, moustache, nbElement;
 	List<GameObject> mouths;
 	Vector3 talkPosition;
-	string[] catTalk = {"miaou","purrrrr","MIAOU"};
+	string[] catTalk = {"Miaou ?","MIAOU !","Miaou !","Miaou\nMiaou","Ron-Ron"};
 
 	public GameObject talkZone, talk;
-
-
+	
     void Start() {
 
         nI = GameObject.Find("CatName").GetComponent<NameIt>();
-        renderer.material.color = init;
 		score = 0;
 		scorePlacement = 0;
 		varietyDico = new Dictionary<string, char>();
@@ -110,14 +107,13 @@ public class Button : MonoBehaviour {
             // Game Over
         }
         else if (!naming) {
-            renderer.material.color = mouseClick;
             nI.Naming();
             naming = true;
 			tpsDeJeu = Time.fixedTime;
         }
         else {
             nI.Naming();
-            //catName = nI.GetName();
+            catName = nI.GetName();
             over = true;
 			tpsDeNom = Time.fixedTime - tpsDeJeu;
 			ComputeScore();							// Score is computed here
@@ -178,7 +174,7 @@ public class Button : MonoBehaviour {
 			}
 		}
 
-		scorePlacement = scorePlacement / nbElement;
+		if(nbElement > 0) scorePlacement = scorePlacement / nbElement;
 
 	}
 
@@ -243,12 +239,11 @@ public class Button : MonoBehaviour {
 
 	}
 
-    void OnMouseEnter() { renderer.material.color = mouseOver; }
-
-    void OnMouseExit() { renderer.material.color = init; }
-
-    void OnMouseDown() { renderer.material.color = mouseClick; }
-
-    void OnMouseUp() { renderer.material.color = mouseOver; }
+	void OnMouseOver() {
+		if(transform.position.y <= -4.468) valideMovement = true;
+		if(transform.position.y >= -4.35) valideMovement = false;
+		if(valideMovement) transform.position = new Vector3(transform.position.x, transform.position.y-((-4.47f-transform.position.y)/10), transform.position.z);
+		else transform.position = new Vector3(transform.position.x, transform.position.y+((-4.47f-transform.position.y)/10), transform.position.z);
+	}
 
 }
