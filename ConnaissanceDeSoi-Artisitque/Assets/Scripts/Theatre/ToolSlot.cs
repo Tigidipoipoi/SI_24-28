@@ -2,6 +2,9 @@
 using System.Collections;
 
 public class ToolSlot : MonoBehaviour {
+    public int m_MaxSimultaneousInstances = 3;
+    [HideInInspector]
+    public int m_SimultaneousInstances = 0;
     public GameObject m_ToolPrefab;
 
     Vector3 m_SpawnPosition {
@@ -17,6 +20,10 @@ public class ToolSlot : MonoBehaviour {
     }
 
     void OnMouseEnter() {
-        Instantiate(m_ToolPrefab, m_SpawnPosition, Quaternion.identity);
+        if (m_SimultaneousInstances < m_MaxSimultaneousInstances) {
+            GameObject newInstance = Instantiate(m_ToolPrefab, m_SpawnPosition, Quaternion.identity) as GameObject;
+            newInstance.transform.parent = this.transform;
+            ++m_SimultaneousInstances;
+        }
     }
 }

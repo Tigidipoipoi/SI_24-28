@@ -8,8 +8,10 @@ public class DragClamp : MonoBehaviour {
     public string description = "";
     int[] m_DepthMasks = new int[4];
     float[] m_ClampedYPosition = new float[4];
-    ToolType m_ToolType;
     float m_RendererSizeY;
+
+    ToolType m_ToolType;
+    ToolSlot m_ParentScript;
     #endregion
 
     void Start() {
@@ -25,10 +27,11 @@ public class DragClamp : MonoBehaviour {
         m_ClampedYPosition[3] = 5f - m_RendererSizeY;
 
         m_ToolType = this.GetComponent<ToolType>();
+        m_ParentScript = this.transform.parent.GetComponent<ToolSlot>();
     }
 
     void OnMouseDown() {
-        distance = Vector3.Distance(transform.position, Camera.main.transform.position);
+        distance = Vector3.Distance(this.transform.position, Camera.main.transform.position);
 
         dragging = true;
     }
@@ -36,27 +39,28 @@ public class DragClamp : MonoBehaviour {
     void OnMouseUp() {
         dragging = false;
 
-        if (transform.position.y < m_ClampedYPosition[0]) {
-            Destroy(this.gameObject);
+        if (this.transform.position.y < m_ClampedYPosition[0] - 0.1f) {
+            SelfDestroy();
         }
 
         if (!m_ToolType.m_IsCeilingStuff) {
-            if (transform.position.y > m_ClampedYPosition[3] - 0.1f
-                && transform.position.y < m_ClampedYPosition[3] + 0.1f) {
-                Destroy(this.gameObject);
+            if (this.transform.position.y > m_ClampedYPosition[3] - 0.1f
+                && this.transform.position.y < m_ClampedYPosition[3] + 0.1f) {
+                SelfDestroy();
             }
         }
         else {
-            if (transform.position.y <= m_ClampedYPosition[3] - 0.1f) {
-                Destroy(this.gameObject);
+            if (this.transform.position.y <= m_ClampedYPosition[3] - 0.1f) {
+                SelfDestroy();
             }
         }
     }
 
     void OnMouseExit() {
         if (!dragging
-            && transform.position.y < m_ClampedYPosition[0])
-            Destroy(this.gameObject);
+            && this.transform.position.y < m_ClampedYPosition[0] - 0.1f) {
+            SelfDestroy();
+        }
     }
 
     void Update() {
@@ -78,7 +82,12 @@ public class DragClamp : MonoBehaviour {
                 }
             }
 
-            transform.position = rayPoint;
+            this.transform.position = rayPoint;
         }
+    }
+
+    void SelfDestroy() {
+        Destroy(this.gameObject);
+        --m_ParentScript.m_SimultaneousInstances;
     }
 }
