@@ -8,6 +8,7 @@ public class DragClamp : MonoBehaviour {
     public string description = "";
     int[] m_DepthMasks = new int[4];
     float[] m_ClampedYPosition = new float[4];
+    ToolType m_ToolType;
     #endregion
 
     void Start() {
@@ -19,6 +20,8 @@ public class DragClamp : MonoBehaviour {
         m_ClampedYPosition[1] = -0.23f;
         m_ClampedYPosition[2] = 1.78f;
         m_ClampedYPosition[3] = 4.2f;
+
+        m_ToolType = this.GetComponent<ToolType>();
     }
 
     void OnMouseDown() {
@@ -30,8 +33,21 @@ public class DragClamp : MonoBehaviour {
     void OnMouseUp() {
         dragging = false;
 
-        if (transform.position.y < m_ClampedYPosition[0])
+        if (transform.position.y < m_ClampedYPosition[0]) {
             Destroy(this.gameObject);
+        }
+
+        if (!m_ToolType.m_IsCeilingStuff) {
+            if (transform.position.y > m_ClampedYPosition[3] - 0.1f
+                && transform.position.y < m_ClampedYPosition[3] + 0.1f) {
+                Destroy(this.gameObject);
+            }
+        }
+        else {
+            if (transform.position.y <= m_ClampedYPosition[3] - 0.1f) {
+                Destroy(this.gameObject);
+            }
+        }
     }
 
     void OnMouseExit() {
@@ -51,6 +67,11 @@ public class DragClamp : MonoBehaviour {
             for (int i = 0; i < 4; ++i) {
                 if (Physics.Raycast(ray, out hit, distance, m_DepthMasks[i])) {
                     rayPoint.y = m_ClampedYPosition[i];
+
+                    if (!m_ToolType.m_IsCeilingStuff
+                        && i == 3) {
+                        // Add red filter
+                    }
                 }
             }
 

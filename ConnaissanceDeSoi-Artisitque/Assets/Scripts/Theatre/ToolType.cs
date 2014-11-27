@@ -1,18 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class ToolType {
-    public enum e_DestinationDepths {
-        FIRST_DEPTH = 0,
-        SECOND_DEPTH,
-        THIRD_DEPTH,
-        FOURTH_DEPTH,
-
-        COUNT
-    }
-
+public class ToolType : MonoBehaviour {
     #region Members
-    public e_DestinationDepths m_DestinationDepth;
+    public bool m_IsCeilingStuff;
     public string m_RessourceName;
     #endregion
 }
