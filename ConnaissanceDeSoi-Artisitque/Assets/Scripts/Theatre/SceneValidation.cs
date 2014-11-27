@@ -37,7 +37,7 @@ public class SceneValidation : MonoBehaviour {
         for (int i = 0; i < m_ToolSlots.Count; ++i) {
             Transform slotChildren = m_ToolSlots[i].transform;
             for (int j = 0; j < slotChildren.childCount; ++j) {
-                GameObject.Destroy(slotChildren.GetChild(j).gameObject);
+                slotChildren.GetChild(j).GetComponent<DragNClamp>().SelfDestroy();
             }
         }
     }

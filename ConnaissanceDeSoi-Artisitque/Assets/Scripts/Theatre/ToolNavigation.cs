@@ -48,17 +48,11 @@ public class ToolNavigation : MonoBehaviour {
             : m_ToolSlots[0].transform.position;
         int directionCoef = moveToRight ? 1 : -1;
 
-        if (m_ToolSlots[0].transform.position.x > c_MinXLeftSlotDisplay - 0.1f
-            && moveToRight
-            && !initializing) {
-            Debug.Log(string.Format("moveToRight : Nope ({0} > {1})", m_ToolSlots[0].transform.position.x, c_MinXLeftSlotDisplay - 0.1f));
-        }
-        else if (m_ToolSlots[m_ToolSlots.Count - 1].transform.position.x < -c_MinXLeftSlotDisplay + 0.1f
-            && !moveToRight
-            && !initializing) {
-            Debug.Log(string.Format("moveToLeft : Nope ({0} < {1})", m_ToolSlots[m_ToolSlots.Count - 1].transform.position.x, -c_MinXLeftSlotDisplay + 0.1f));
-        }
-        else {
+        if (!(!initializing
+            && ((CanMoveToRight()
+                    && moveToRight)
+                || (CanMoveToLeft()
+                    && !moveToRight)))) {
             for (int i = 0; i < m_ToolSlots.Count; ++i) {
                 if (!initializing) {
                     newPosition.x = m_ToolSlots[i].transform.position.x;
@@ -83,6 +77,13 @@ public class ToolNavigation : MonoBehaviour {
 
             DetermineSlotsDisplay();
         }
+    }
 
+    bool CanMoveToLeft() {
+        return m_ToolSlots[m_ToolSlots.Count - 1].transform.position.x < -c_MinXLeftSlotDisplay + 0.1f;
+    }
+
+    bool CanMoveToRight() {
+        return m_ToolSlots[0].transform.position.x > c_MinXLeftSlotDisplay - 0.1f;
     }
 }

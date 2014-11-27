@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class DragClamp : MonoBehaviour {
+public class DragNClamp : MonoBehaviour {
     #region Methods
     public int c_ToolsToAutoValidate = 15;
     public string description = "";
@@ -94,7 +94,7 @@ public class DragClamp : MonoBehaviour {
         }
     }
 
-    void SelfDestroy() {
+    public void SelfDestroy() {
         Destroy(this.gameObject);
         --m_ParentScript.p_SimultaneousInstances;
     }
