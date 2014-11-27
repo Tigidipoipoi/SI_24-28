@@ -2,27 +2,28 @@ fileFormatVersion: 2
 guid: 33b326a719c808146b310f13529200c6
 TextureImporter:
   fileIDToRecycleName:
-    21300000: AtlasTools_0
-    21300002: AtlasTools_1
-    21300004: AtlasTools_2
-    21300006: AtlasTools_3
-    21300008: AtlasTools_4
-    21300010: AtlasTools_5
-    21300012: AtlasTools_6
-    21300014: AtlasTools_7
-    21300016: AtlasTools_8
-    21300018: AtlasTools_9
-    21300020: AtlasTools_10
-    21300022: AtlasTools_11
-    21300024: AtlasTools_12
-    21300026: AtlasTools_13
-    21300028: AtlasTools_14
-    21300030: AtlasTools_15
-    21300032: AtlasTools_16
-    21300034: AtlasTools_17
-    21300036: AtlasTools_18
-    21300038: AtlasTools_19
-    21300040: AtlasTools_20
+    21300000: PurpleBush
+    21300002: Cloud
+    21300004: Waves
+    21300006: Bird
+    21300008: PinkTree
+    21300010: Lampost
+    21300012: HillWeed
+    21300014: Boat
+    21300016: Mirror
+    21300018: Bench
+    21300020: Cloud2
+    21300022: House
+    21300024: AutomnTree
+    21300026: CrescentMoon
+    21300028: StarSoft
+    21300030: StarSharp
+    21300032: Rainbow
+    21300034: Sun
+    21300036: Rocket
+    21300038: LightTree
+    21300040: BlueBush
+    21300042: LamPost
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -64,7 +65,7 @@ TextureImporter:
   buildTargetSettings: []
   spriteSheet:
     sprites:
-    - name: AtlasTools_0
+    - name: PurpleBush
       rect:
         serializedVersion: 2
         x: 130
@@ -74,7 +75,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: AtlasTools_1
+    - name: Cloud
       rect:
         serializedVersion: 2
         x: 496
@@ -84,7 +85,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: AtlasTools_2
+    - name: Waves
       rect:
         serializedVersion: 2
         x: 60
@@ -94,7 +95,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: AtlasTools_3
+    - name: Bird
       rect:
         serializedVersion: 2
         x: 931
@@ -104,7 +105,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: AtlasTools_4
+    - name: PinkTree
       rect:
         serializedVersion: 2
         x: 1201
@@ -114,17 +115,17 @@ TextureImporter:
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: AtlasTools_5
+    - name: LamPost
       rect:
         serializedVersion: 2
-        x: 1777
-        y: 1755
-        width: 97
-        height: 661
+        x: 1781
+        y: 1756
+        width: 93
+        height: 654
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: AtlasTools_6
+    - name: HillWeed
       rect:
         serializedVersion: 2
         x: 2003
@@ -134,17 +135,17 @@ TextureImporter:
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: AtlasTools_7
+    - name: Boat
       rect:
         serializedVersion: 2
         x: 62
-        y: 1089
-        width: 425
-        height: 358
+        y: 1099
+        width: 423
+        height: 348
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: AtlasTools_8
+    - name: Mirror
       rect:
         serializedVersion: 2
         x: 544
@@ -154,7 +155,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: AtlasTools_9
+    - name: Bench
       rect:
         serializedVersion: 2
         x: 790
@@ -164,7 +165,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: AtlasTools_10
+    - name: Cloud2
       rect:
         serializedVersion: 2
         x: 1326
@@ -174,7 +175,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: AtlasTools_11
+    - name: House
       rect:
         serializedVersion: 2
         x: 1814
@@ -184,47 +185,47 @@ TextureImporter:
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: AtlasTools_12
+    - name: AutomnTree
       rect:
         serializedVersion: 2
-        x: 34
-        y: 263
-        width: 412
-        height: 711
+        x: 39
+        y: 265
+        width: 406
+        height: 707
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: AtlasTools_13
+    - name: CrescentMoon
       rect:
         serializedVersion: 2
-        x: 500
-        y: 666
-        width: 228
-        height: 305
+        x: 501
+        y: 668
+        width: 227
+        height: 303
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: AtlasTools_14
+    - name: StarSoft
       rect:
         serializedVersion: 2
-        x: 756
+        x: 761
         y: 608
-        width: 127
+        width: 115
         height: 358
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: AtlasTools_15
+    - name: StarSharp
       rect:
         serializedVersion: 2
-        x: 898
-        y: 601
-        width: 129
-        height: 363
+        x: 901
+        y: 606
+        width: 126
+        height: 358
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: AtlasTools_16
+    - name: Rainbow
       rect:
         serializedVersion: 2
         x: 1053
@@ -234,7 +235,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: AtlasTools_17
+    - name: Sun
       rect:
         serializedVersion: 2
         x: 1928
@@ -244,27 +245,27 @@ TextureImporter:
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: AtlasTools_18
+    - name: Rocket
       rect:
         serializedVersion: 2
-        x: 635
-        y: 72
-        width: 285
-        height: 464
+        x: 643
+        y: 73
+        width: 273
+        height: 463
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: AtlasTools_19
+    - name: LightTree
       rect:
         serializedVersion: 2
         x: 1067
         y: 139
-        width: 237
+        width: 236
         height: 362
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: AtlasTools_20
+    - name: BlueBush
       rect:
         serializedVersion: 2
         x: 1536

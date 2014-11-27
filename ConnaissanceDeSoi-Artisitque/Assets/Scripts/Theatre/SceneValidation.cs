@@ -35,9 +35,9 @@ public class SceneValidation : MonoBehaviour {
 
     void CleanScene() {
         for (int i = 0; i < m_ToolSlots.Count; ++i) {
-            Transform slotChildren = m_ToolSlots[i].transform;
-            for (int j = 0; j < slotChildren.childCount; ++j) {
-                slotChildren.GetChild(j).GetComponent<DragNClamp>().SelfDestroy();
+            int instanceCount = m_ToolSlots[i].m_InstanciatedObjects.Count;
+            for (int j = 0; j < instanceCount; ++j) {
+                m_ToolSlots[i].m_InstanciatedObjects[j].SelfDestroy();
             }
         }
     }

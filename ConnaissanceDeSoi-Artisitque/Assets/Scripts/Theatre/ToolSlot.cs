@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class ToolSlot : MonoBehaviour {
     #region Members
@@ -31,6 +32,9 @@ public class ToolSlot : MonoBehaviour {
         }
     }
     SceneValidation m_SceneValidationScript;
+
+    [HideInInspector]
+    public List<DragNClamp> m_InstanciatedObjects = new List<DragNClamp>();
     #endregion
 
     void Start() {
@@ -44,6 +48,7 @@ public class ToolSlot : MonoBehaviour {
     void OnMouseEnter() {
         if (p_SimultaneousInstances < m_MaxSimultaneousInstances) {
             GameObject newInstance = Instantiate(m_ToolPrefab, m_SpawnPosition, Quaternion.identity) as GameObject;
+            m_InstanciatedObjects.Add(newInstance.GetComponent<DragNClamp>());
             newInstance.GetComponent<DragNClamp>().m_SlotScript = this;
             ++p_SimultaneousInstances;
         }

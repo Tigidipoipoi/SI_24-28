@@ -23,7 +23,7 @@ public class DragNClamp : MonoBehaviour {
             m_DepthMasks[i] = LayerMask.GetMask("TheatreDepth" + (i + 1).ToString());
         }
 
-        m_RendererSizeY = this.GetComponent<MeshRenderer>().bounds.size.y / 2;
+        m_RendererSizeY = this.GetComponent<Renderer>().bounds.size.y / 2;
 
         m_ClampedYPosition[0] = -3f + m_RendererSizeY;
         m_ClampedYPosition[1] = -1.73f + m_RendererSizeY;
@@ -96,6 +96,7 @@ public class DragNClamp : MonoBehaviour {
 
     public void SelfDestroy() {
         Destroy(this.gameObject);
+        m_SlotScript.m_InstanciatedObjects.Remove(this);
         --m_SlotScript.p_SimultaneousInstances;
     }
 }
