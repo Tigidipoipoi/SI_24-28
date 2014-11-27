@@ -8,7 +8,7 @@ public class TextGeneration : MonoBehaviour {
     public float c_TimeBetweenSpawns = 0.5f;
     public int c_MaxWordInALine = 3;
 
-    Queue<GameObject> m_WordsQueue;
+    public Queue<GameObject> m_WordsQueue;
     GameObject m_InvokedWordsContainer;
     GameObject m_InactiveWordsContainer;
     List<Word> m_WordList;
@@ -63,7 +63,11 @@ public class TextGeneration : MonoBehaviour {
     }
 
     IEnumerator InvokeWords() {
-        while (m_StaticAttributes.m_DestroyedWord < m_StaticAttributes.m_DestroyedWordsToEnd) {
+        // Shift 1st spawn
+        float rngInitWait = Random.Range(0f, m_StaticAttributes.m_RNGInitTime);
+        yield return new WaitForSeconds(rngInitWait);
+
+        while (m_StaticAttributes.m_DestroyedWordCount < m_StaticAttributes.m_DestroyedWordsToEnd) {
             if (m_InvokedWordsContainer.transform.childCount < c_MaxWordInALine) {
                 GameObject invokedWord = m_WordsQueue.Dequeue();
                 TextLife invokedWordScript = invokedWord.GetComponent<TextLife>();
@@ -73,6 +77,7 @@ public class TextGeneration : MonoBehaviour {
                 // Waiting for invokedWordScript to be set
                 yield return null;
 
+                invokedWordScript.StartCoroutine("Move");
                 float timeToWait = invokedWordScript.GetTimeToWait(c_TimeBetweenSpawns);
                 yield return new WaitForSeconds(timeToWait);
             }
@@ -81,13 +86,12 @@ public class TextGeneration : MonoBehaviour {
         }
 
         // Launch GameOver
-        Debug.Log("GameOver");
+        m_StaticAttributes.ComputeHiddenScore();
     }
 
     public void ReturnToQueue(GameObject wordToReturn) {
         m_WordsQueue.Enqueue(wordToReturn);
         wordToReturn.transform.parent = m_InactiveWordsContainer.transform;
-        wordToReturn.transform.position = m_InactiveWordsContainer.transform.position;
         wordToReturn.SetActive(false);
     }
 }

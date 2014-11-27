@@ -15,7 +15,6 @@ public class TextLife : MonoBehaviour {
 
     void Start() {
         m_TextMesh = this.transform.FindChild("Text").GetComponent<TextMesh>();
-        this.StartCoroutine("Move");
         m_TextMesh.text = m_Word.m_Text;
 
         float spawnXPosition = 0f;
@@ -31,12 +30,12 @@ public class TextLife : MonoBehaviour {
                 break;
         }
         m_ResetPosition = new Vector3(spawnXPosition, this.transform.position.y, this.transform.position.z);
+        this.transform.position = m_ResetPosition;
 
         m_ParentGenerator = this.transform.parent.parent.gameObject.GetComponent<TextGeneration>();
-        Debug.Log(m_Word.m_Text);
     }
 
-    IEnumerator Move() {
+    public IEnumerator Move() {
         float desappearXPosition = 0f;
         switch (m_Word.m_Category) {
             case Word.e_WordCategories.SHORT_WORD:
@@ -50,20 +49,18 @@ public class TextLife : MonoBehaviour {
                 break;
         }
 
-        while (true) {
-            if (this.transform.position.x > desappearXPosition) {
-                m_ParentGenerator.ReturnToQueue(this.gameObject);
-                this.transform.position = m_ResetPosition;
-            }
-
+        while (this.transform.position.x <= desappearXPosition) {
             this.transform.Translate(new Vector3(m_WordSpeed, 0, 0) * Time.deltaTime);
             yield return null;
         }
+
+        m_ParentGenerator.ReturnToQueue(this.gameObject);
+        this.transform.position = m_ResetPosition;
     }
 
     void OnMouseDown() {
         GameObject.Destroy(this.gameObject);
-        ++m_ParentGenerator.m_StaticAttributes.m_DestroyedWord;
+        ++m_ParentGenerator.m_StaticAttributes.m_DestroyedWordCount;
     }
 
     public float GetTimeToWait(float timeBetweenSpawns) {
