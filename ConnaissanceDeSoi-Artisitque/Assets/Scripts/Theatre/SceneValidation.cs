@@ -28,6 +28,17 @@ public class SceneValidation : MonoBehaviour {
     public void ValidateScene() {
         if (m_ToolInstanceCount >= c_MinimumToolsToValidate) {
             Debug.Log("Valider");
+
+            CleanScene();
+        }
+    }
+
+    void CleanScene() {
+        for (int i = 0; i < m_ToolSlots.Count; ++i) {
+            Transform slotChildren = m_ToolSlots[i].transform;
+            for (int j = 0; j < slotChildren.childCount; ++j) {
+                GameObject.Destroy(slotChildren.GetChild(j).gameObject);
+            }
         }
     }
 }
