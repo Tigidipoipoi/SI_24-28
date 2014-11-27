@@ -61,6 +61,8 @@ public class TextLife : MonoBehaviour {
     void OnMouseDown() {
         GameObject.Destroy(this.gameObject);
         ++m_ParentGenerator.m_StaticAttributes.m_DestroyedWordCount;
+
+        Camera.main.GetComponent<CameraShake>().ScreenShake();
     }
 
     public float GetTimeToWait(float timeBetweenSpawns) {

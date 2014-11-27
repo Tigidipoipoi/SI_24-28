@@ -52,7 +52,10 @@
      <Compile Include="Assets\Scripts\DressUp\NameIt.cs" />
      <Compile Include="Assets\Scripts\DressUp\TextTB.cs" />
      <Compile Include="Assets\Scripts\DressUp\Tools.cs" />
+     <Compile Include="Assets\Scripts\Shooter\CameraShake.cs" />
+     <Compile Include="Assets\Scripts\Shooter\EffectControl.cs" />
      <Compile Include="Assets\Scripts\Shooter\FingerGun.cs" />
+     <Compile Include="Assets\Scripts\Shooter\KillParticles.cs" />
      <Compile Include="Assets\Scripts\Shooter\ShooterScore.cs" />
      <Compile Include="Assets\Scripts\Shooter\TextGeneration.cs" />
      <Compile Include="Assets\Scripts\Shooter\TextGenerationMaster.cs" />

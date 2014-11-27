@@ -9,6 +9,7 @@ public class DragClamp : MonoBehaviour {
     int[] m_DepthMasks = new int[4];
     float[] m_ClampedYPosition = new float[4];
     ToolType m_ToolType;
+    float m_RendererSizeY;
     #endregion
 
     void Start() {
@@ -16,10 +17,12 @@ public class DragClamp : MonoBehaviour {
             m_DepthMasks[i] = LayerMask.GetMask("TheatreDepth" + (i + 1).ToString());
         }
 
-        m_ClampedYPosition[0] = -2.23f;
-        m_ClampedYPosition[1] = -0.23f;
-        m_ClampedYPosition[2] = 1.78f;
-        m_ClampedYPosition[3] = 4.2f;
+        m_RendererSizeY = this.GetComponent<MeshRenderer>().bounds.size.y / 2;
+
+        m_ClampedYPosition[0] = -3f + m_RendererSizeY;
+        m_ClampedYPosition[1] = -1.73f + m_RendererSizeY;
+        m_ClampedYPosition[2] = -0.49f + m_RendererSizeY;
+        m_ClampedYPosition[3] = 5f - m_RendererSizeY;
 
         m_ToolType = this.GetComponent<ToolType>();
     }
