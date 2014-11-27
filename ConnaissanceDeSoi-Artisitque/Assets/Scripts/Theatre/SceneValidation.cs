@@ -37,7 +37,7 @@ public class SceneValidation : MonoBehaviour {
         for (int i = 0; i < m_ToolSlots.Count; ++i) {
             int instanceCount = m_ToolSlots[i].m_InstanciatedObjects.Count;
             for (int j = 0; j < instanceCount; ++j) {
-                m_ToolSlots[i].m_InstanciatedObjects[j].SelfDestroy();
+                m_ToolSlots[i].m_InstanciatedObjects[0].SelfDestroy();
             }
         }
     }
