@@ -44,7 +44,7 @@ public class ToolSlot : MonoBehaviour {
     void OnMouseEnter() {
         if (p_SimultaneousInstances < m_MaxSimultaneousInstances) {
             GameObject newInstance = Instantiate(m_ToolPrefab, m_SpawnPosition, Quaternion.identity) as GameObject;
-            newInstance.transform.parent = this.transform;
+            newInstance.GetComponent<DragNClamp>().m_SlotScript = this;
             ++p_SimultaneousInstances;
         }
     }

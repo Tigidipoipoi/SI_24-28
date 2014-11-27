@@ -12,8 +12,9 @@ public class DragNClamp : MonoBehaviour {
     float[] m_ClampedYPosition = new float[4];
     float m_RendererSizeY;
 
+    [HideInInspector]
+    public ToolSlot m_SlotScript;
     ToolType m_ToolType;
-    ToolSlot m_ParentScript;
     SceneValidation m_SceneValidationScript;
     #endregion
 
@@ -30,7 +31,6 @@ public class DragNClamp : MonoBehaviour {
         m_ClampedYPosition[3] = 5f - m_RendererSizeY;
 
         m_ToolType = this.GetComponent<ToolType>();
-        m_ParentScript = this.transform.parent.GetComponent<ToolSlot>();
         m_SceneValidationScript = GameObject.Find("Timer").GetComponent<SceneValidation>();
     }
 
@@ -96,6 +96,6 @@ public class DragNClamp : MonoBehaviour {
 
     public void SelfDestroy() {
         Destroy(this.gameObject);
-        --m_ParentScript.p_SimultaneousInstances;
+        --m_SlotScript.p_SimultaneousInstances;
     }
 }
