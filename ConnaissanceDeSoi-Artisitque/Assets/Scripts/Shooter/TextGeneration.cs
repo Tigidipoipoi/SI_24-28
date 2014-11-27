@@ -4,9 +4,10 @@ using System.Collections.Generic;
 
 public class TextGeneration : MonoBehaviour {
     #region Members
+    [HideInInspector]
     public TextGenerationMaster m_StaticAttributes;
-    public float c_TimeBetweenSpawns = 0.5f;
-    public int c_MaxWordInALine = 3;
+    float c_TimeBetweenSpawns = 0.7f;
+    int c_MaxWordInALine = 3;
 
     public Queue<GameObject> m_WordsQueue;
     GameObject m_InvokedWordsContainer;

@@ -3,7 +3,8 @@ using System.Collections;
 
 public class TextLife : MonoBehaviour {
     #region Members
-    public float m_WordSpeed = 1.5f;
+    float m_WordSpeed = 2.6f;
+    [HideInInspector]
     public Word m_Word;
 
     TextMesh m_TextMesh;
