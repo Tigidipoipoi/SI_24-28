@@ -9,7 +9,7 @@ public class ShooterScore : MonoBehaviour {
         }
         set {
             m_Score = value;
-            m_TextMesh.text = m_Score.ToString("000");
+            m_TextMesh.text = (30 - m_Score).ToString("000");
         }
     }
     TextMesh m_TextMesh;

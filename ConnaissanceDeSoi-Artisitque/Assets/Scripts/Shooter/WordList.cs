@@ -16,52 +16,53 @@ public static class WordList {
 
         // SHORT
         // ArtRelated
-        s_WordList.Add(new Word("Musée", Word.e_WordCategories.SHORT_WORD, isArtRelated: true));
+        s_WordList.Add(new Word("Musee", Word.e_WordCategories.SHORT_WORD, isArtRelated: true));
         s_WordList.Add(new Word("Danse", Word.e_WordCategories.SHORT_WORD, isArtRelated: true));
         s_WordList.Add(new Word("Dessin", Word.e_WordCategories.SHORT_WORD, isArtRelated: true));
-        s_WordList.Add(new Word("Poésie", Word.e_WordCategories.SHORT_WORD, isArtRelated: true));
+        s_WordList.Add(new Word("Poesie", Word.e_WordCategories.SHORT_WORD, isArtRelated: true));
         s_WordList.Add(new Word("Emotif", Word.e_WordCategories.SHORT_WORD, isArtRelated: true));
-        s_WordList.Add(new Word("Théâtre", Word.e_WordCategories.SHORT_WORD, isArtRelated: true));
+        s_WordList.Add(new Word("Theatre", Word.e_WordCategories.SHORT_WORD, isArtRelated: true));
         s_WordList.Add(new Word("Musique", Word.e_WordCategories.SHORT_WORD, isArtRelated: true));
         s_WordList.Add(new Word("Lecture", Word.e_WordCategories.SHORT_WORD, isArtRelated: true));
-        s_WordList.Add(new Word("Créatif", Word.e_WordCategories.SHORT_WORD, isArtRelated: true));
+        s_WordList.Add(new Word("Creatif", Word.e_WordCategories.SHORT_WORD, isArtRelated: true));
         s_WordList.Add(new Word("Impulsif", Word.e_WordCategories.SHORT_WORD, isArtRelated: true));
+        s_WordList.Add(new Word("Flexible", Word.e_WordCategories.SHORT_WORD, isArtRelated: true));
         // !ArtRelated
         s_WordList.Add(new Word("Ponctuel", Word.e_WordCategories.SHORT_WORD, isArtRelated: false));
         s_WordList.Add(new Word("Sport", Word.e_WordCategories.SHORT_WORD, isArtRelated: false));
-        s_WordList.Add(new Word("Ménage", Word.e_WordCategories.SHORT_WORD, isArtRelated: false));
+        s_WordList.Add(new Word("Menage", Word.e_WordCategories.SHORT_WORD, isArtRelated: false));
         s_WordList.Add(new Word("Fiable", Word.e_WordCategories.SHORT_WORD, isArtRelated: false));
-        s_WordList.Add(new Word("Précis", Word.e_WordCategories.SHORT_WORD, isArtRelated: false));
-        s_WordList.Add(new Word("Ordonné", Word.e_WordCategories.SHORT_WORD, isArtRelated: false));
+        s_WordList.Add(new Word("Precis", Word.e_WordCategories.SHORT_WORD, isArtRelated: false));
+        s_WordList.Add(new Word("Ordonne", Word.e_WordCategories.SHORT_WORD, isArtRelated: false));
         s_WordList.Add(new Word("Logique", Word.e_WordCategories.SHORT_WORD, isArtRelated: false));
         s_WordList.Add(new Word("Patient", Word.e_WordCategories.SHORT_WORD, isArtRelated: false));
         s_WordList.Add(new Word("Sciences", Word.e_WordCategories.SHORT_WORD, isArtRelated: false));
 
         // MEDIUM
         // ArtRelated
-        s_WordList.Add(new Word("Indépendant", Word.e_WordCategories.MEDIUM_WORD, isArtRelated: true));
+        s_WordList.Add(new Word("Independant", Word.e_WordCategories.MEDIUM_WORD, isArtRelated: true));
         s_WordList.Add(new Word("Sculpture", Word.e_WordCategories.MEDIUM_WORD, isArtRelated: true));
         s_WordList.Add(new Word("Expressif", Word.e_WordCategories.MEDIUM_WORD, isArtRelated: true));
-        s_WordList.Add(new Word("Passionné", Word.e_WordCategories.MEDIUM_WORD, isArtRelated: true));
+        s_WordList.Add(new Word("Passionne", Word.e_WordCategories.MEDIUM_WORD, isArtRelated: true));
         // !ArtRelated
-        s_WordList.Add(new Word("Mécanique", Word.e_WordCategories.MEDIUM_WORD, isArtRelated: false));
+        s_WordList.Add(new Word("Mecanique", Word.e_WordCategories.MEDIUM_WORD, isArtRelated: false));
         s_WordList.Add(new Word("Rangement", Word.e_WordCategories.MEDIUM_WORD, isArtRelated: false));
         s_WordList.Add(new Word("Habitudes", Word.e_WordCategories.MEDIUM_WORD, isArtRelated: false));
-        s_WordList.Add(new Word("Obéissant", Word.e_WordCategories.MEDIUM_WORD, isArtRelated: false));
+        s_WordList.Add(new Word("Obeissant", Word.e_WordCategories.MEDIUM_WORD, isArtRelated: false));
         s_WordList.Add(new Word("Routinier", Word.e_WordCategories.MEDIUM_WORD, isArtRelated: false));
         s_WordList.Add(new Word("Rationnel", Word.e_WordCategories.MEDIUM_WORD, isArtRelated: false));
-        s_WordList.Add(new Word("Méthodique", Word.e_WordCategories.MEDIUM_WORD, isArtRelated: false));
-        s_WordList.Add(new Word("Synthétique", Word.e_WordCategories.MEDIUM_WORD, isArtRelated: false));
+        s_WordList.Add(new Word("Methodique", Word.e_WordCategories.MEDIUM_WORD, isArtRelated: false));
+        s_WordList.Add(new Word("Synthetique", Word.e_WordCategories.MEDIUM_WORD, isArtRelated: false));
         s_WordList.Add(new Word("Raisonnable", Word.e_WordCategories.MEDIUM_WORD, isArtRelated: false));
 
         // LONG
         // !ArtRelated
         s_WordList.Add(new Word("Informatique", Word.e_WordCategories.LONG_WORD, isArtRelated: false));
-        s_WordList.Add(new Word("Comptabilité", Word.e_WordCategories.LONG_WORD, isArtRelated: false));
-        s_WordList.Add(new Word("Mathématiques", Word.e_WordCategories.LONG_WORD, isArtRelated: false));
+        s_WordList.Add(new Word("Comptabilite", Word.e_WordCategories.LONG_WORD, isArtRelated: false));
+        s_WordList.Add(new Word("Mathematiques", Word.e_WordCategories.LONG_WORD, isArtRelated: false));
         s_WordList.Add(new Word("Consciencieux", Word.e_WordCategories.LONG_WORD, isArtRelated: false));
         s_WordList.Add(new Word("Travaux Manuels", Word.e_WordCategories.LONG_WORD, isArtRelated: false));
-        s_WordList.Add(new Word("Suivre les Règles", Word.e_WordCategories.LONG_WORD, isArtRelated: false));
+        s_WordList.Add(new Word("Suivre les Regles", Word.e_WordCategories.LONG_WORD, isArtRelated: false));
         s_WordList.Add(new Word("Perfectionniste", Word.e_WordCategories.LONG_WORD, isArtRelated: false));
     }
 

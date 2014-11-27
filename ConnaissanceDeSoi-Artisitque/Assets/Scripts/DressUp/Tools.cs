@@ -7,7 +7,7 @@ public class Tools : MonoBehaviour {
 
     void OnMouseEnter() {
 
-        Instantiate(myType, transform.position, Quaternion.identity);
+        Instantiate(myType, new Vector3(transform.position.x, transform.position.y, (transform.position.z - 2f)), transform.rotation);
 
     }
 

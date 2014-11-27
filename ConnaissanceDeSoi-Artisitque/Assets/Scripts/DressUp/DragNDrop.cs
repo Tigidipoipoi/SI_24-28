@@ -7,8 +7,11 @@ class DragNDrop : MonoBehaviour {
     private float distance;
     private TextTB ttb;
     public string description = "";
+	public GameObject particules;
+	private Button model;
 
-    void Start() {
+    void start() {
+
         ttb = GameObject.Find("TextTB").GetComponent<TextTB>();
 
     }
@@ -31,13 +34,19 @@ class DragNDrop : MonoBehaviour {
 
         dragging = true;
 
+			transform.localScale = new Vector3(1,1,1);
+			Instantiate(particules,new Vector3(transform.position.x, transform.position.y, 0),transform.rotation);
+			
+
     }
 
     void OnMouseUp() {
-
-        dragging = false;
-
-        if (transform.position.x > 2.5) Destroy(this.gameObject);
+			
+			dragging = false;
+			if(model == null) model = GameObject.Find("Button").GetComponent<Button>();
+			if (transform.position.x > -1) Destroy(this.gameObject);
+			else model.ElementDroped(this.gameObject);
+			
 
     }
 
@@ -48,7 +57,7 @@ class DragNDrop : MonoBehaviour {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
             Vector3 rayPoint = ray.GetPoint(distance);
-            rayPoint.z = 0;
+            rayPoint.z = transform.position.z;
 
             transform.position = rayPoint;
 

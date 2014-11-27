@@ -47,10 +47,13 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\Common\PauseScript.cs" />
+     <Compile Include="Assets\Scripts\DressUp\Bandeau.cs" />
      <Compile Include="Assets\Scripts\DressUp\Button.cs" />
      <Compile Include="Assets\Scripts\DressUp\DragNDrop.cs" />
      <Compile Include="Assets\Scripts\DressUp\Model.cs" />
      <Compile Include="Assets\Scripts\DressUp\NameIt.cs" />
+     <Compile Include="Assets\Scripts\DressUp\Nuages.cs" />
+     <Compile Include="Assets\Scripts\DressUp\ParticlesDeath.cs" />
      <Compile Include="Assets\Scripts\DressUp\TextTB.cs" />
      <Compile Include="Assets\Scripts\DressUp\Tools.cs" />
      <Compile Include="Assets\Scripts\Shooter\CameraShake.cs" />
