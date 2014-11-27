@@ -6,8 +6,7 @@ public class ToolSlot : MonoBehaviour {
     public int m_MaxSimultaneousInstances = 3;
     public GameObject m_ToolPrefab;
 
-    private int m_SimultaneousInstances = 0;
-    [HideInInspector]
+    int m_SimultaneousInstances = 0;
     public int p_SimultaneousInstances {
         get {
             return m_SimultaneousInstances;

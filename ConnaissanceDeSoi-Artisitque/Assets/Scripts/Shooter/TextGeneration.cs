@@ -21,7 +21,7 @@ public class TextGeneration : MonoBehaviour {
 
         PopulateWordList();
 
-        m_WordsQueue = new Queue<GameObject>(m_StaticAttributes.m_DestroyedWordsToEnd);
+        m_WordsQueue = new Queue<GameObject>(TextGenerationMaster.c_DestroyedWordsToEnd);
         m_InvokedWordsContainer = transform.FindChild("Spawn").gameObject;
         m_InactiveWordsContainer = transform.FindChild("Queue").gameObject;
 
@@ -68,7 +68,7 @@ public class TextGeneration : MonoBehaviour {
         float rngInitWait = Random.Range(0f, m_StaticAttributes.m_RNGInitTime);
         yield return new WaitForSeconds(rngInitWait);
 
-        while (m_StaticAttributes.m_DestroyedWordCount < m_StaticAttributes.m_DestroyedWordsToEnd) {
+        while (m_StaticAttributes.m_DestroyedWordCount < TextGenerationMaster.c_DestroyedWordsToEnd) {
             if (m_InvokedWordsContainer.transform.childCount < c_MaxWordInALine) {
                 GameObject invokedWord = m_WordsQueue.Dequeue();
                 TextLife invokedWordScript = invokedWord.GetComponent<TextLife>();

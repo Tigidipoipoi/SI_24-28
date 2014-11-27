@@ -7,8 +7,7 @@ public class TextGenerationMaster : MonoBehaviour {
     #region Members
     [HideInInspector]
     public int m_DestroyedWordCount = 0;
-    [HideInInspector]
-    public int m_DestroyedWordsToEnd = 30;
+    public const int c_DestroyedWordsToEnd = 30;
     [HideInInspector]
     public float m_RNGInitTime = 3f;
     int m_HiddenScore = 0;
