@@ -3,15 +3,18 @@ using System.Collections;
 
 public class DragClamp : MonoBehaviour {
     #region Methods
-    private bool dragging = false;
-    private float distance;
+    public int c_ToolsToAutoValidate = 15;
     public string description = "";
+
+    bool dragging = false;
+    float distance;
     int[] m_DepthMasks = new int[4];
     float[] m_ClampedYPosition = new float[4];
     float m_RendererSizeY;
 
     ToolType m_ToolType;
     ToolSlot m_ParentScript;
+    SceneValidation m_SceneValidationScript;
     #endregion
 
     void Start() {
@@ -28,6 +31,7 @@ public class DragClamp : MonoBehaviour {
 
         m_ToolType = this.GetComponent<ToolType>();
         m_ParentScript = this.transform.parent.GetComponent<ToolSlot>();
+        m_SceneValidationScript = GameObject.Find("Timer").GetComponent<SceneValidation>();
     }
 
     void OnMouseDown() {
@@ -53,6 +57,10 @@ public class DragClamp : MonoBehaviour {
             if (this.transform.position.y <= m_ClampedYPosition[3] - 0.1f) {
                 SelfDestroy();
             }
+        }
+
+        if (m_SceneValidationScript.m_ToolInstanceCount >= c_ToolsToAutoValidate) {
+            m_SceneValidationScript.ValidateScene();
         }
     }
 
@@ -88,6 +96,6 @@ public class DragClamp : MonoBehaviour {
 
     void SelfDestroy() {
         Destroy(this.gameObject);
-        --m_ParentScript.m_SimultaneousInstances;
+        --m_ParentScript.p_SimultaneousInstances;
     }
 }

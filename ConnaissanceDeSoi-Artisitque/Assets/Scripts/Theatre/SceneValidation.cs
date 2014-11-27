@@ -6,6 +6,9 @@ public class SceneValidation : MonoBehaviour {
     #region Members
     public int c_MinimumToolsToValidate = 5;
 
+    //[HideInInspector]
+    public int m_ToolInstanceCount = 0;
+
     List<ToolSlot> m_ToolSlots = new List<ToolSlot>();
     #endregion
 
@@ -22,17 +25,9 @@ public class SceneValidation : MonoBehaviour {
         ValidateScene();
     }
 
-    void ValidateScene() {
-        int toolInstances = 0;
-        for (int i = 0; i < m_ToolSlots.Count; ++i) {
-            toolInstances += m_ToolSlots[i].m_SimultaneousInstances;
-        }
-
-        if (toolInstances >= c_MinimumToolsToValidate) {
+    public void ValidateScene() {
+        if (m_ToolInstanceCount >= c_MinimumToolsToValidate) {
             Debug.Log("Valider");
-        }
-        else {
-            Debug.Log(toolInstances.ToString());
         }
     }
 }
