@@ -46,6 +46,7 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Scripts\Common\LaunchScene.cs" />
      <Compile Include="Assets\Scripts\Common\PauseScript.cs" />
      <Compile Include="Assets\Scripts\DressUp\Bandeau.cs" />
      <Compile Include="Assets\Scripts\DressUp\BoutonSilhouette.cs" />
