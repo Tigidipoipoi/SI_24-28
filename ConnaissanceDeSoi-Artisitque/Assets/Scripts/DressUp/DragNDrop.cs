@@ -28,7 +28,7 @@ class DragNDrop : MonoBehaviour {
         dragging = false;
 
         if (model == null)
-            model = GameObject.Find("ValiderBouton").GetComponent<Button>();
+			model = GameObject.Find("BoutonValider").GetComponent<Button>();
         if (transform.position.x > -1)
             Destroy(this.gameObject);
         else

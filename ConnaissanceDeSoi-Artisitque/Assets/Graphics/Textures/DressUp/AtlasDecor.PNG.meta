@@ -1,8 +1,7 @@
 fileFormatVersion: 2
 guid: 833c56289cee531419280220dc11e4c8
 TextureImporter:
-  fileIDToRecycleName:
-    21300000: AtlasDecor
+  fileIDToRecycleName: {}
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0

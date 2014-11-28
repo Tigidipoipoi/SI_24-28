@@ -13,7 +13,7 @@ public class SceneData {
                 return m_StartTime - m_EndTime;
             }
             else {
-                Debug.LogError("SceneData::p_CreationTime => shouldn't be called !");
+                Debug.LogError(string.Format("SceneData::p_CreationTime => shouldn't be called ! {0} / {1}", m_EndTime, m_StartTime));
                 return -1;
             }
         }

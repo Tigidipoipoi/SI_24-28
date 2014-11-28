@@ -4,7 +4,7 @@ using System.Collections;
 public class NameIt : MonoBehaviour {
 
     TextMesh tm;
-    string catName = "donne un nom à ton chat";
+    string catName = "";
     bool naming = false, named = false;
 
     void Start() {
@@ -23,7 +23,7 @@ public class NameIt : MonoBehaviour {
 
     void OnGUI() {
 
-        if (naming) catName = GUI.TextField(new Rect(700, 480, 200, 20), catName, 25);
+        if (naming) catName = GUI.TextField(new Rect(Screen.width/1.63f, Screen.height/3f, Screen.width/5, Screen.height/12), catName, 25);
 
     }
 

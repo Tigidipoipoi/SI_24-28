@@ -50,6 +50,7 @@
      <Compile Include="Assets\Scripts\Common\PauseScript.cs" />
      <Compile Include="Assets\Scripts\DressUp\Bandeau.cs" />
      <Compile Include="Assets\Scripts\DressUp\BoutonSilhouette.cs" />
+     <Compile Include="Assets\Scripts\DressUp\BulleTexteAnim.cs" />
      <Compile Include="Assets\Scripts\DressUp\Button.cs" />
      <Compile Include="Assets\Scripts\DressUp\DragNDrop.cs" />
      <Compile Include="Assets\Scripts\DressUp\Model.cs" />

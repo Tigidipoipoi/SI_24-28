@@ -65,6 +65,7 @@ public class SceneValidation : MonoBehaviour {
                 m_ToolSlots[i].m_InstanciatedObjects[0].SelfDestroy();
             }
         }
+        Debug.Log(m_TimerScript.m_ElapsedTime.ToString());
         m_SceneDataList.Add(new SceneData(m_TimerScript.m_ElapsedTime));
 
         m_ThemeIndic.SetTheme("Azerty");
