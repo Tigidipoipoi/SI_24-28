@@ -7,9 +7,9 @@ public class ToolNavigation : MonoBehaviour {
     public static readonly string c_LeftArrowName = "LeftArrow";
     public static readonly string c_RightArrowName = "RightArrow";
 
-    const float c_SpaceBetweenSlots = 1.5f;
-    const float c_MinXLeftSlotDisplay = -5.65f;
-    const float c_MaxXLeftSlotDisplay = -1.15f;
+    const float c_SpaceBetweenSlots = 1.3f;
+    const float c_MinXLeftSlotDisplay = -6.3f;
+    const float c_MaxXLeftSlotDisplay = -2.4f;
 
     const float c_FixedYSlot = -4f;
     const float c_FixedZSlot = 0f;

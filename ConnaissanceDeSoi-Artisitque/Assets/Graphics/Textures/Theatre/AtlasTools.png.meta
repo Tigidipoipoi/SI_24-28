@@ -1,33 +1,10 @@
 fileFormatVersion: 2
 guid: 33b326a719c808146b310f13529200c6
 TextureImporter:
-  fileIDToRecycleName:
-    21300000: PurpleBush
-    21300002: Cloud
-    21300004: Waves
-    21300006: Bird
-    21300008: PinkTree
-    21300010: Lampost
-    21300012: HillWeed
-    21300014: Boat
-    21300016: Mirror
-    21300018: Bench
-    21300020: Cloud2
-    21300022: House
-    21300024: AutomnTree
-    21300026: CrescentMoon
-    21300028: StarSoft
-    21300030: StarSharp
-    21300032: Rainbow
-    21300034: Sun
-    21300036: Rocket
-    21300038: LightTree
-    21300040: BlueBush
-    21300042: LamPost
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
-    enableMipMap: 1
+    enableMipMap: 0
     linearTexture: 0
     correctGamma: 0
     fadeOut: 0
@@ -47,7 +24,7 @@ TextureImporter:
   maxTextureSize: 1024
   textureSettings:
     filterMode: -1
-    aniso: 16
+    aniso: 1
     mipBias: -1
     wrapMode: 1
   nPOTScale: 0
@@ -65,7 +42,7 @@ TextureImporter:
   buildTargetSettings: []
   spriteSheet:
     sprites:
-    - name: PurpleBush
+    - name: Grass
       rect:
         serializedVersion: 2
         x: 130
@@ -115,7 +92,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: LamPost
+    - name: LampPost
       rect:
         serializedVersion: 2
         x: 1781
@@ -125,7 +102,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: HillWeed
+    - name: Hill
       rect:
         serializedVersion: 2
         x: 2003
@@ -255,7 +232,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: LightTree
+    - name: Flower
       rect:
         serializedVersion: 2
         x: 1067

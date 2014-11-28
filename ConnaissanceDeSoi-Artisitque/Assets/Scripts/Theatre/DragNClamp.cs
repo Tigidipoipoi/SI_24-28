@@ -3,7 +3,7 @@ using System.Collections;
 
 public class DragNClamp : MonoBehaviour {
     #region Methods
-    public int c_ToolsToAutoValidate = 15;
+    int c_ToolsToAutoValidate = 25;
     public string description = "";
 
     bool m_Dragging = false;
