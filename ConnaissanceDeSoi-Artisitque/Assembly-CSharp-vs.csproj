@@ -80,6 +80,7 @@
      <Compile Include="Assets\Scripts\Theatre\SceneValidation.cs" />
      <Compile Include="Assets\Scripts\Theatre\TheatreTimer.cs" />
      <Compile Include="Assets\Scripts\Theatre\ThemeIndic.cs" />
+     <Compile Include="Assets\Scripts\Theatre\ThemeList.cs" />
      <Compile Include="Assets\Scripts\Theatre\ToolNavigation.cs" />
      <Compile Include="Assets\Scripts\Theatre\ToolSlot.cs" />
      <Compile Include="Assets\Scripts\Theatre\ToolType.cs" />

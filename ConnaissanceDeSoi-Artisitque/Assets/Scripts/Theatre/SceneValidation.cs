@@ -34,6 +34,7 @@ public class SceneValidation : MonoBehaviour {
 
         m_SceneDataList.Add(new SceneData(0));
 
+        ThemeList.PopulateThemes();
         m_ThemeIndic = GameObject.Find("ThemeIndic").GetComponent<ThemeIndic>();
         m_CurtainTransition = GameObject.Find("CurtainTransition").GetComponent<CurtainTransition>();
     }
