@@ -4,7 +4,6 @@ using System.Collections;
 public class DragNClamp : MonoBehaviour {
     #region Methods
     int c_ToolsToAutoValidate = 25;
-    public string description = "";
 
     bool m_Dragging = false;
     float distance;
@@ -38,20 +37,19 @@ public class DragNClamp : MonoBehaviour {
         m_Renderer = this.GetComponent<Renderer>();
     }
 
-    void OnMouseDown() {
+    void OnMouseEnter() {
         //Event e = Event.current;
         //Debug.Log(e.clickCount.ToString());
         //if (e.clickCount == 2) {
 
         //}
 
-        InitDrag();
+        Debug.Log("ARG");
     }
 
     void OnMouseUp() {
         ExitDrag();
     }
-
 
     public void InitDrag() {
         distance = Vector3.Distance(this.transform.position, Camera.main.transform.position);
@@ -110,7 +108,7 @@ public class DragNClamp : MonoBehaviour {
                         if (i == 3) {
                             this.Resize(2);
                             rayPoint.y = m_ClampedYPosition[2];
-                            rayPoint.z = 2.5f;
+                            rayPoint.z = 3f;
                         }
                         else {
                             this.Resize(i);
