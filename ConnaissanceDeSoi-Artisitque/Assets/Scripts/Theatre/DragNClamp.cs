@@ -28,8 +28,8 @@ public class DragNClamp : MonoBehaviour {
         m_RendererSizeY = this.GetComponent<Renderer>().bounds.size.y / 2;
 
         m_ClampedYPosition[0] = -3f + m_RendererSizeY;
-        m_ClampedYPosition[1] = -1.73f + m_RendererSizeY;
-        m_ClampedYPosition[2] = -0.49f + m_RendererSizeY;
+        m_ClampedYPosition[1] = -1.73f + m_RendererSizeY * 0.8f;
+        m_ClampedYPosition[2] = -0.49f + m_RendererSizeY * 0.6f;
         m_ClampedYPosition[3] = 5f - m_RendererSizeY;
 
         m_ToolType = this.GetComponent<ToolType>();
@@ -39,6 +39,12 @@ public class DragNClamp : MonoBehaviour {
     }
 
     void OnMouseDown() {
+        //Event e = Event.current;
+        //Debug.Log(e.clickCount.ToString());
+        //if (e.clickCount == 2) {
+
+        //}
+
         InitDrag();
     }
 
@@ -102,10 +108,12 @@ public class DragNClamp : MonoBehaviour {
                     }
                     else {
                         if (i == 3) {
+                            this.Resize(2);
                             rayPoint.y = m_ClampedYPosition[2];
                             rayPoint.z = 2.5f;
                         }
                         else {
+                            this.Resize(i);
                             rayPoint.y = m_ClampedYPosition[i];
                             rayPoint.z = i + 1f;
                         }
@@ -129,5 +137,18 @@ public class DragNClamp : MonoBehaviour {
 
     public float GetThresholdPosY() {
         return m_ClampedYPosition[0];
+    }
+
+    void Resize(int depth) {
+        float resizeRatio = 1f;
+
+        if (depth == 1) {
+            resizeRatio = 0.8f;
+        }
+        else if (depth == 2) {
+            resizeRatio = 0.6f;
+        }
+
+        this.transform.localScale = new Vector3(resizeRatio, resizeRatio, 0f);
     }
 }
