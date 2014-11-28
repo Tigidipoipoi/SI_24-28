@@ -1,6 +1,28 @@
 fileFormatVersion: 2
 guid: 33b326a719c808146b310f13529200c6
 TextureImporter:
+  fileIDToRecycleName:
+    21300000: Grass
+    21300002: Cloud
+    21300004: Waves
+    21300006: Bird
+    21300008: PinkTree
+    21300010: LampPost
+    21300012: Hill
+    21300014: Boat
+    21300016: Mirror
+    21300018: Bench
+    21300020: Cloud2
+    21300022: House
+    21300024: AutomnTree
+    21300026: CrescentMoon
+    21300028: StarSoft
+    21300030: StarSharp
+    21300032: Rainbow
+    21300034: Sun
+    21300036: Rocket
+    21300038: Flower
+    21300040: BlueBush
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -56,9 +78,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 496
-        y: 1977
+        y: 1982
         width: 345
-        height: 417
+        height: 260
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -78,7 +100,7 @@ TextureImporter:
         x: 931
         y: 1535
         width: 185
-        height: 355
+        height: 250
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -148,7 +170,7 @@ TextureImporter:
         x: 1326
         y: 1073
         width: 359
-        height: 366
+        height: 310
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -188,7 +210,7 @@ TextureImporter:
         x: 761
         y: 608
         width: 115
-        height: 358
+        height: 200
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -198,7 +220,7 @@ TextureImporter:
         x: 901
         y: 606
         width: 126
-        height: 358
+        height: 200
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -218,7 +240,7 @@ TextureImporter:
         x: 1928
         y: 459
         width: 315
-        height: 469
+        height: 400
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -228,7 +250,7 @@ TextureImporter:
         x: 643
         y: 73
         width: 273
-        height: 463
+        height: 400
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
