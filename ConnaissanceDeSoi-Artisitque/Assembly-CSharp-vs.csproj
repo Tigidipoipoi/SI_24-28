@@ -71,6 +71,7 @@
      <Compile Include="Assets\Scripts\Shooter\WordList.cs" />
      <Compile Include="Assets\Scripts\Shooter\anim_shoot.cs" />
      <Compile Include="Assets\Scripts\Shooter\handMove.cs" />
+     <Compile Include="Assets\Scripts\Theatre\CurtainTransition.cs" />
      <Compile Include="Assets\Scripts\Theatre\DragNClamp.cs" />
      <Compile Include="Assets\Scripts\Theatre\NavigationArrow.cs" />
      <Compile Include="Assets\Scripts\Theatre\SceneData.cs" />

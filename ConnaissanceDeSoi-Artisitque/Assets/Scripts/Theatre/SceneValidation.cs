@@ -19,6 +19,7 @@ public class SceneValidation : MonoBehaviour {
     
     TheatreTimer m_TimerScript;
     ThemeIndic m_ThemeIndic;
+    CurtainTransition m_CurtainTransition;
     #endregion
 
     void Start() {
@@ -34,11 +35,12 @@ public class SceneValidation : MonoBehaviour {
         m_SceneDataList.Add(new SceneData(0));
 
         m_ThemeIndic = GameObject.Find("ThemeIndic").GetComponent<ThemeIndic>();
+        m_CurtainTransition = GameObject.Find("CurtainTransition").GetComponent<CurtainTransition>();
     }
 
     void Update() {
         if (Input.GetKeyDown(KeyCode.R)) {
-            CleanScene();
+            this.StartCoroutine("CleanScene");
         }
     }
 
@@ -52,7 +54,7 @@ public class SceneValidation : MonoBehaviour {
             ++m_ValidatedSceneCount;
 
             if (m_TimerScript.m_ElapsedTime < TheatreTimer.c_MaxTime) {
-                CleanScene();
+                this.StartCoroutine("CleanScene");
             }
             else {
                 ComputeHiddenScore();
@@ -60,7 +62,9 @@ public class SceneValidation : MonoBehaviour {
         }
     }
 
-    void CleanScene() {
+    IEnumerator CleanScene() {
+        yield return m_CurtainTransition.StartCoroutine("HandleDisplay");
+
         for (int i = 0; i < m_ToolSlots.Count; ++i) {
             int instanceCount = m_ToolSlots[i].m_InstanciatedObjects.Count;
             SceneData validatedScene = m_SceneDataList.Last();

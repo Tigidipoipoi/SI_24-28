@@ -24,7 +24,7 @@ public class TheatreTimer : MonoBehaviour {
         this.StartCoroutine("TickTimer");
     }
 
-    IEnumerator TickTimer() {
+    public IEnumerator TickTimer() {
         while (m_ElapsedTime < c_MaxTime) {
             ++m_ElapsedTime;
             m_Display.text = p_TimeToDisplay;

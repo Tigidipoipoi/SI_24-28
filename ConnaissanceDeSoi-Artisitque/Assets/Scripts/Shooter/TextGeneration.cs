@@ -6,7 +6,8 @@ public class TextGeneration : MonoBehaviour {
     #region Members
     [HideInInspector]
     public TextGenerationMaster m_StaticAttributes;
-    float c_TimeBetweenSpawns = 0.7f;
+    public float c_TimeBetweenSpawns = 0.7f;
+    public float c_WordSpeed = 2.6f;
     int c_MaxWordInALine = 3;
 
     public Queue<GameObject> m_WordsQueue;

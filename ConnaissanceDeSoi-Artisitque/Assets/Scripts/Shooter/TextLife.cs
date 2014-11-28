@@ -3,7 +3,6 @@ using System.Collections;
 
 public class TextLife : MonoBehaviour {
     #region Members
-    float m_WordSpeed = 2.6f;
     [HideInInspector]
     public Word m_Word;
 
@@ -51,7 +50,7 @@ public class TextLife : MonoBehaviour {
         }
 
         while (this.transform.position.x <= desappearXPosition) {
-            this.transform.Translate(new Vector3(m_WordSpeed, 0, 0) * Time.deltaTime);
+            this.transform.Translate(new Vector3(m_ParentGenerator.c_WordSpeed, 0, 0) * Time.deltaTime);
             yield return null;
         }
 
@@ -80,7 +79,7 @@ public class TextLife : MonoBehaviour {
                 break;
         }
 
-        float timeToWait = size / m_WordSpeed + timeBetweenSpawns;
+        float timeToWait = size / m_ParentGenerator.c_WordSpeed + timeBetweenSpawns;
 
         return timeToWait;
     }
