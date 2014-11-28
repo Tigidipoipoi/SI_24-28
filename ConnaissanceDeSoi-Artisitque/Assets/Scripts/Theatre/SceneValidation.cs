@@ -63,7 +63,7 @@ public class SceneValidation : MonoBehaviour {
     }
 
     IEnumerator CleanScene() {
-        yield return m_CurtainTransition.StartCoroutine("HandleDisplay");
+        yield return m_CurtainTransition.StartCoroutine("CloseCurtain");
 
         for (int i = 0; i < m_ToolSlots.Count; ++i) {
             int instanceCount = m_ToolSlots[i].m_InstanciatedObjects.Count;
