@@ -96,14 +96,14 @@ public class DragNClamp : MonoBehaviour {
         DisplayHandling();
 
         if (m_Dragging) {
-            Ray ray = new Ray(Camera.main.ScreenToWorldPoint(Input.mousePosition), new Vector3(0f, 0f, 1f));
-            RaycastHit hit;
+            Vector3 mousePosToWorld = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            Ray ray = new Ray(mousePosToWorld, new Vector3(0f, 0f, 1f));
 
             Vector3 rayPoint = ray.GetPoint(distance);
             rayPoint.z = 0;
 
             for (int i = 0; i < 4; ++i) {
-                if (Physics.Raycast(ray, out hit, distance, m_DepthMasks[i])) {
+                if (Physics2D.Raycast(mousePosToWorld, new Vector2(0f, 0f), distance, m_DepthMasks[i])) {
                     if (m_ToolType.m_IsCeilingStuff) {
                         rayPoint.y = m_ClampedYPosition[3];
                         rayPoint.z = 4f;
