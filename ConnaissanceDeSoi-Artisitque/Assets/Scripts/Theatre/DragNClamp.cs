@@ -96,7 +96,20 @@ public class DragNClamp : MonoBehaviour {
 
             for (int i = 0; i < 4; ++i) {
                 if (Physics.Raycast(ray, out hit, distance, m_DepthMasks[i])) {
-                    rayPoint.y = m_ClampedYPosition[i];
+                    if (m_ToolType.m_IsCeilingStuff) {
+                        rayPoint.y = m_ClampedYPosition[3];
+                        rayPoint.z = 4f;
+                    }
+                    else {
+                        if (i == 3) {
+                            rayPoint.y = m_ClampedYPosition[2];
+                            rayPoint.z = 2.5f;
+                        }
+                        else {
+                            rayPoint.y = m_ClampedYPosition[i];
+                            rayPoint.z = i + 1f;
+                        }
+                    }
                 }
             }
 

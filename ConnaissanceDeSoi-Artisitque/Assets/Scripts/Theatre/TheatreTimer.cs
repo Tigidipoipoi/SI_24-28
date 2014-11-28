@@ -4,7 +4,7 @@ using System.Collections;
 public class TheatreTimer : MonoBehaviour {
     #region Members
     public int m_ElapsedTime = 0;
-    public const int c_MaxTime = 2 * 60;
+    public const int c_MaxTime = 1 * 60;
 
     TextMesh m_Display;
 

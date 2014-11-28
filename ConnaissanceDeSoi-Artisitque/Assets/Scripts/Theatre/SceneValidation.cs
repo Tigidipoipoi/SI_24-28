@@ -36,6 +36,12 @@ public class SceneValidation : MonoBehaviour {
         m_ThemeIndic = GameObject.Find("ThemeIndic").GetComponent<ThemeIndic>();
     }
 
+    void Update() {
+        if (Input.GetKeyDown(KeyCode.R)) {
+            CleanScene();
+        }
+    }
+
     void OnMouseDown() {
         ValidateScene();
     }

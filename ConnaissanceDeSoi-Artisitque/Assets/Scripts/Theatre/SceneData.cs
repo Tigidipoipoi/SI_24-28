@@ -9,11 +9,11 @@ public class SceneData {
     public int m_EndTime;
     public int p_CreationTime {
         get {
-            if (m_EndTime < m_StartTime) {
-                return m_StartTime - m_EndTime;
+            if (m_EndTime > m_StartTime) {
+                return m_EndTime - m_StartTime;
             }
             else {
-                Debug.LogError(string.Format("SceneData::p_CreationTime => shouldn't be called ! {0} / {1}", m_EndTime, m_StartTime));
+                Debug.LogError(string.Format("SceneData::p_CreationTime => shouldn't be called ! {0} < {1}", m_EndTime, m_StartTime));
                 return -1;
             }
         }
