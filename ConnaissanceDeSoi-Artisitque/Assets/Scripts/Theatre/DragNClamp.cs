@@ -37,14 +37,18 @@ public class DragNClamp : MonoBehaviour {
         m_Renderer = this.GetComponent<Renderer>();
     }
 
-    void OnMouseEnter() {
+    void OnMouseDown() {
         //Event e = Event.current;
         //Debug.Log(e.clickCount.ToString());
         //if (e.clickCount == 2) {
 
         //}
 
-        Debug.Log("ARG");
+        InitDrag();
+    }
+
+    void OnMouseEnter() {
+        Debug.Log("Je te vois !");
     }
 
     void OnMouseUp() {

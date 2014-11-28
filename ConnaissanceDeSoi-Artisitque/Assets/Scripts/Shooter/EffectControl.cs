@@ -3,6 +3,7 @@ using System.Collections;
 
 public class EffectControl : MonoBehaviour {
 	public GameObject shot_effect;
+	
 
     void ShotEffect (){
 		Vector3 m_mousePos = Camera.main.ScreenToWorldPoint (Input.mousePosition);
@@ -12,6 +13,7 @@ public class EffectControl : MonoBehaviour {
 	void Update () {
 		if (Input.GetMouseButtonDown(0))
 		{
+			Sound.Manager.Shooter_Shoot.Play (Random.Range (0.95f, 1.05f));
 			ShotEffect();
 		}
 	}

@@ -63,7 +63,9 @@
      <Compile Include="Assets\Scripts\Shooter\EffectControl.cs" />
      <Compile Include="Assets\Scripts\Shooter\FingerGun.cs" />
      <Compile Include="Assets\Scripts\Shooter\KillParticles.cs" />
+     <Compile Include="Assets\Scripts\Shooter\Script_SoundEffect.cs" />
      <Compile Include="Assets\Scripts\Shooter\ShooterScore.cs" />
+     <Compile Include="Assets\Scripts\Shooter\Sound.cs" />
      <Compile Include="Assets\Scripts\Shooter\TextGeneration.cs" />
      <Compile Include="Assets\Scripts\Shooter\TextGenerationMaster.cs" />
      <Compile Include="Assets\Scripts\Shooter\TextLife.cs" />
